@@ -8,14 +8,11 @@ public class Server {
     public static void main(String[] args) throws RemoteException {
         try {
             Registry registry = LocateRegistry.createRegistry(1099);
-            Naming.rebind("rmi://localhost:1099/Hello" , new HelloImp());
+            Naming.rebind("rmi://localhost:1099/Hello" , new PiImp());
 
             System.out.println("Servidor online!");
         } catch (RemoteException | MalformedURLException e) {
             e.printStackTrace();
         }
-
-
-
     }
 }
